@@ -106,20 +106,20 @@ def display_image_8bpp(display):
         display.frame_buf.paste(img1, paste_coords)
         display.draw_full(constants.DisplayModes.DU)
 
-# def partial_update(display):
-#     print('Starting partial update...')
-#
-#     # clear image to white
-#     display.frame_buf.paste(0xFF, box=(0, 0, display.width, display.height))
-#
-#     print('  writing full...')
-#     _place_text(display.frame_buf, 'partial', x_offset=-200)
-#     display.draw_full(constants.DisplayModes.GC16)
-#
-#     # TODO: should use 1bpp for partial text update
-#     print('  writing partial...')
-#     _place_text(display.frame_buf, 'update', x_offset=+200)
-#     display.draw_partial(constants.DisplayModes.DU)
+def partial_update(display):
+    print('Starting partial update...')
+
+    # clear image to white
+    display.frame_buf.paste(0xFF, box=(0, 0, display.width, display.height))
+
+    print('  writing full...')
+    _place_text(display.frame_buf, 'partial', x_offset=-200)
+    display.draw_full(constants.DisplayModes.GC16)
+
+    # TODO: should use 1bpp for partial text update
+    print('  writing partial...')
+    _place_text(display.frame_buf, 'update', x_offset=+200)
+    display.draw_partial(constants.DisplayModes.DU)
 
 # this function is just a helper for the others
 def _place_text(img, text, x_offset=0, y_offset=0):
