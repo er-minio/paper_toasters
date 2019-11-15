@@ -62,8 +62,8 @@ def display_image_8bpp(display):
     img4_path = 'sprite/toaster_04.png'
     print('Displaying Sprites')
 
-    # clearing image to white
-    display.frame_buf.paste(0xFF, box=(0, 0, display.width, display.height))
+    # clearing image to black
+    display.frame_buf.paste(0x00, box=(0, 0, display.width, display.height))
 
     img1 = Image.open(img1_path)
     img2 = Image.open(img2_path)
