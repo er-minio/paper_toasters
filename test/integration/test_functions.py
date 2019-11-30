@@ -107,6 +107,8 @@ def display_image_8bpp(display):
         display.frame_buf.paste(img2, paste_coords)
         display.draw_full(constants.DisplayModes.DU)
         
+        hor = hor + 5
+        
 
 def partial_update(display):
     print('Starting partial update...')
