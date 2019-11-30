@@ -75,49 +75,56 @@ def display_image_8bpp(display):
 
     x = 1
     hor = 350
+    ver = 200
     while True:
         
         img1.thumbnail(dims)
-        paste_coords = hor, 200
+        paste_coords = hor, ver
         display.frame_buf.paste(img1, paste_coords)
         display.draw_full(constants.DisplayModes.DU)
         
         hor = hor - 5
+        ver = ver - 5
         
         img2.thumbnail(dims)
-        paste_coords = hor, 200
+        paste_coords = hor, ver
         display.frame_buf.paste(img2, paste_coords)
         display.draw_full(constants.DisplayModes.DU)
         
         hor = hor - 5
+        ver = ver - 5
         
         img3.thumbnail(dims)
-        paste_coords = hor, 200
+        paste_coords = hor, ver
         display.frame_buf.paste(img3, paste_coords)
         display.draw_full(constants.DisplayModes.DU)
         
         hor = hor - 5
+        ver = ver - 5
         
         img4.thumbnail(dims)
-        paste_coords = hor, 200
+        paste_coords = hor, ver
         display.frame_buf.paste(img4, paste_coords)
         display.draw_full(constants.DisplayModes.DU)
         
         hor = hor - 5
+        ver = ver - 5
         
         img3.thumbnail(dims)
-        paste_coords = hor, 200
+        paste_coords = hor, ver
         display.frame_buf.paste(img3, paste_coords)
         display.draw_full(constants.DisplayModes.DU)
         
         hor = hor - 5
+        ver = ver - 5
         
         img2.thumbnail(dims)
-        paste_coords = hor, 200
+        paste_coords = hor, ver
         display.frame_buf.paste(img2, paste_coords)
         display.draw_full(constants.DisplayModes.DU)
         
         hor = hor - 5
+        ver = ver - 5
         
 
 def partial_update(display):
