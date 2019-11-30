@@ -74,35 +74,36 @@ def display_image_8bpp(display):
     dims = (display.width, display.height)
 
     x = 1
+    hor = 200
     while True:
         
         img1.thumbnail(dims)
-        paste_coords = 350,200
+        paste_coords = 350, hor
         display.frame_buf.paste(img1, paste_coords)
         display.draw_full(constants.DisplayModes.DU)
         
         img2.thumbnail(dims)
-        paste_coords = 350,200
+        paste_coords = 350, hor
         display.frame_buf.paste(img2, paste_coords)
         display.draw_full(constants.DisplayModes.DU)
         
         img3.thumbnail(dims)
-        paste_coords = 350,200
+        paste_coords = 350, hor
         display.frame_buf.paste(img3, paste_coords)
         display.draw_full(constants.DisplayModes.DU)
         
         img4.thumbnail(dims)
-        paste_coords = 350,200
+        paste_coords = 350, hor
         display.frame_buf.paste(img4, paste_coords)
         display.draw_full(constants.DisplayModes.DU)
         
         img3.thumbnail(dims)
-        paste_coords = 350,200
+        paste_coords = 350, hor
         display.frame_buf.paste(img3, paste_coords)
         display.draw_full(constants.DisplayModes.DU)
         
         img2.thumbnail(dims)
-        paste_coords = 350,200
+        paste_coords = 350, hor
         display.frame_buf.paste(img2, paste_coords)
         display.draw_full(constants.DisplayModes.DU)
         
