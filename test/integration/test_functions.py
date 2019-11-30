@@ -74,7 +74,7 @@ def display_image_8bpp(display):
     dims = (display.width, display.height)
 
     x = 1
-    hor = 200
+    hor = 350
     while True:
         
         img1.thumbnail(dims)
@@ -117,7 +117,7 @@ def display_image_8bpp(display):
         display.frame_buf.paste(img2, paste_coords)
         display.draw_full(constants.DisplayModes.DU)
         
-        hor = hor + 2
+        hor = hor - 5
         
 
 def partial_update(display):
