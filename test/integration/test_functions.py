@@ -75,7 +75,7 @@ def display_image_8bpp(display):
     dims = (display.width, display.height)
 
     x = 1
-    hor = 800
+    hor = 600
     ver = 200
     while True:
         
