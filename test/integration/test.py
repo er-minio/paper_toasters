@@ -40,7 +40,7 @@ def main():
 
     for t in tests:
         t(display)
-        sleep(1)
+        sleep(0)
 
     print('Done!')
 

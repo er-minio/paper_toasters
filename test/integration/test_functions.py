@@ -75,8 +75,8 @@ def display_image_8bpp(display):
     dims = (display.width, display.height)
 
     x = 1
-    hor = 600
-    ver = 200
+    hor = 800
+    ver = -45
     while True:
         
         img1.thumbnail(dims)
@@ -86,6 +86,7 @@ def display_image_8bpp(display):
         
         hor = hor - 5
         ver = ver + 5
+        print(f'position {hor},{ver}')
         
         img2.thumbnail(dims)
         paste_coords = hor, ver
