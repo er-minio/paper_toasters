@@ -1,4 +1,5 @@
 from test_functions import *
+from threading import Thread
 import random
 from PIL import Image, ImageDraw, ImageFont
 from IT8951 import constants
@@ -16,6 +17,7 @@ img1_path = 'sprite/toaster_01.png'
 img2_path = 'sprite/toaster_02.png'
 img3_path = 'sprite/toaster_03.png'
 img4_path = 'sprite/toaster_04.png'
+toast_path = 'sprite/toast.png'
 print('Displaying Sprites')
 
 # clearing image to black
@@ -26,11 +28,13 @@ img1 = Image.open(img1_path)
 img2 = Image.open(img2_path)
 img3 = Image.open(img3_path)
 img4 = Image.open(img4_path)
+toast = Image.open(toast_path)
 
 # TODO: this should be built-in
 dims = (display.width, display.height)
 
-def toastersprite(start):
+def toastersprite(randomstart):
+    start = randomstart
     hor = start
     ver = -100
     while hor > -220:
@@ -83,13 +87,25 @@ def toastersprite(start):
     
         hor = hor - 5
         ver = ver + 5
-        
-# animating the display
 
+def toastsprite(randomstart):
+    start = randomstart
+    hor = start
+    ver = -100
+    while hor > -220:
+    
+        toast.thumbnail(dims)
+        paste_coords = hor, ver
+        display.frame_buf.paste(toast, paste_coords)
+        display.draw_partial(constants.DisplayModes.DU)
+        
+        hor = hor - 5
+        ver = ver + 5
+
+# animating the display
 x = 1
 while True:
-
     randomstart = random.randint(1,801)
     print(f'starting position: {randomstart}')
-
+    toastsprite(randomstart)
     toastersprite(randomstart)
