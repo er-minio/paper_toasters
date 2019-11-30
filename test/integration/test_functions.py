@@ -64,6 +64,7 @@ def display_image_8bpp(display):
 
     # clearing image to black
     display.frame_buf.paste(0x00, box=(0, 0, display.width, display.height))
+    print('Clearing screen to black')
 
     img1 = Image.open(img1_path)
     img2 = Image.open(img2_path)
@@ -74,7 +75,7 @@ def display_image_8bpp(display):
     dims = (display.width, display.height)
 
     x = 1
-    hor = 350
+    hor = 800
     ver = 200
     while True:
         
