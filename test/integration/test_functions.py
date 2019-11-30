@@ -84,7 +84,7 @@ def display_image_8bpp(display):
         display.draw_full(constants.DisplayModes.DU)
         
         hor = hor - 5
-        ver = ver - 5
+        ver = ver + 5
         
         img2.thumbnail(dims)
         paste_coords = hor, ver
@@ -92,7 +92,7 @@ def display_image_8bpp(display):
         display.draw_full(constants.DisplayModes.DU)
         
         hor = hor - 5
-        ver = ver - 5
+        ver = ver + 5
         
         img3.thumbnail(dims)
         paste_coords = hor, ver
@@ -100,7 +100,7 @@ def display_image_8bpp(display):
         display.draw_full(constants.DisplayModes.DU)
         
         hor = hor - 5
-        ver = ver - 5
+        ver = ver + 5
         
         img4.thumbnail(dims)
         paste_coords = hor, ver
@@ -108,7 +108,7 @@ def display_image_8bpp(display):
         display.draw_full(constants.DisplayModes.DU)
         
         hor = hor - 5
-        ver = ver - 5
+        ver = ver + 5
         
         img3.thumbnail(dims)
         paste_coords = hor, ver
@@ -116,7 +116,7 @@ def display_image_8bpp(display):
         display.draw_full(constants.DisplayModes.DU)
         
         hor = hor - 5
-        ver = ver - 5
+        ver = ver + 5
         
         img2.thumbnail(dims)
         paste_coords = hor, ver
@@ -124,7 +124,7 @@ def display_image_8bpp(display):
         display.draw_full(constants.DisplayModes.DU)
         
         hor = hor - 5
-        ver = ver - 5
+        ver = ver + 5
         
 
 def partial_update(display):
