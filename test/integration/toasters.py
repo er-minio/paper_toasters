@@ -1,4 +1,5 @@
 from test_functions import *
+import random
 from PIL import Image, ImageDraw, ImageFont
 from IT8951 import constants
 from sys import path
@@ -29,56 +30,66 @@ img4 = Image.open(img4_path)
 # TODO: this should be built-in
 dims = (display.width, display.height)
 
+def toastersprite(start):
+    hor = start
+    ver = -100
+    while hor > -220:
+    
+        img1.thumbnail(dims)
+        paste_coords = hor, ver
+        display.frame_buf.paste(img1, paste_coords)
+        display.draw_partial(constants.DisplayModes.DU)
+    
+        hor = hor - 5
+        ver = ver + 5
+        print(f'position {hor},{ver}')
+    
+        img2.thumbnail(dims)
+        paste_coords = hor, ver
+        display.frame_buf.paste(img2, paste_coords)
+        display.draw_partial(constants.DisplayModes.DU)
+    
+        hor = hor - 5
+        ver = ver + 5
+    
+        img3.thumbnail(dims)
+        paste_coords = hor, ver
+        display.frame_buf.paste(img3, paste_coords)
+        display.draw_partial(constants.DisplayModes.DU)
+    
+        hor = hor - 5
+        ver = ver + 5
+    
+        img4.thumbnail(dims)
+        paste_coords = hor, ver
+        display.frame_buf.paste(img4, paste_coords)
+        display.draw_partial(constants.DisplayModes.DU)
+    
+        hor = hor - 5
+        ver = ver + 5
+    
+        img3.thumbnail(dims)
+        paste_coords = hor, ver
+        display.frame_buf.paste(img3, paste_coords)
+        display.draw_partial(constants.DisplayModes.DU)
+    
+        hor = hor - 5
+        ver = ver + 5
+    
+        img2.thumbnail(dims)
+        paste_coords = hor, ver
+        display.frame_buf.paste(img2, paste_coords)
+        display.draw_partial(constants.DisplayModes.DU)
+    
+        hor = hor - 5
+        ver = ver + 5
+        
+# animating the display
+
 x = 1
-hor = 800
-ver = -45
 while True:
-    
-    img1.thumbnail(dims)
-    paste_coords = hor, ver
-    display.frame_buf.paste(img1, paste_coords)
-    display.draw_full(constants.DisplayModes.DU)
-    
-    hor = hor - 5
-    ver = ver + 5
-    print(f'position {hor},{ver}')
-    
-    img2.thumbnail(dims)
-    paste_coords = hor, ver
-    display.frame_buf.paste(img2, paste_coords)
-    display.draw_full(constants.DisplayModes.DU)
-    
-    hor = hor - 5
-    ver = ver + 5
-    
-    img3.thumbnail(dims)
-    paste_coords = hor, ver
-    display.frame_buf.paste(img3, paste_coords)
-    display.draw_full(constants.DisplayModes.DU)
-    
-    hor = hor - 5
-    ver = ver + 5
-    
-    img4.thumbnail(dims)
-    paste_coords = hor, ver
-    display.frame_buf.paste(img4, paste_coords)
-    display.draw_full(constants.DisplayModes.DU)
-    
-    hor = hor - 5
-    ver = ver + 5
-    
-    img3.thumbnail(dims)
-    paste_coords = hor, ver
-    display.frame_buf.paste(img3, paste_coords)
-    display.draw_full(constants.DisplayModes.DU)
-    
-    hor = hor - 5
-    ver = ver + 5
-    
-    img2.thumbnail(dims)
-    paste_coords = hor, ver
-    display.frame_buf.paste(img2, paste_coords)
-    display.draw_full(constants.DisplayModes.DU)
-    
-    hor = hor - 5
-    ver = ver + 5
+
+    randomstart = random.randint(1,801)
+    print(f'starting position: {randomstart}')
+
+    toastersprite(randomstart)
