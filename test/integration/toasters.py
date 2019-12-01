@@ -21,6 +21,7 @@ toast_path = 'sprite/toast.png'
 print('Displaying Sprites')
 
 # clearing image to black
+display.clear()
 display.frame_buf.paste(0x00, box=(0, 0, display.width, display.height))
 print('Clearing screen to black')
 
