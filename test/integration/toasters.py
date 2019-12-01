@@ -46,7 +46,7 @@ def toastersprite(randomstart):
         img1.thumbnail(dims)
         paste_coords = hor, ver
         display.frame_buf.paste(img1, paste_coords)
-        display.draw_partial(constants.DisplayModes.DU)
+        display.draw_partial(constants.DisplayModes.A2)
     
         hor = hor - shift
         ver = ver + shift
@@ -55,7 +55,7 @@ def toastersprite(randomstart):
         img2.thumbnail(dims)
         paste_coords = hor, ver
         display.frame_buf.paste(img2, paste_coords)
-        display.draw_partial(constants.DisplayModes.DU)
+        display.draw_partial(constants.DisplayModes.A2)
     
         hor = hor - shift
         ver = ver + shift
@@ -63,7 +63,7 @@ def toastersprite(randomstart):
         img3.thumbnail(dims)
         paste_coords = hor, ver
         display.frame_buf.paste(img3, paste_coords)
-        display.draw_partial(constants.DisplayModes.DU)
+        display.draw_partial(constants.DisplayModes.A2)
     
         hor = hor - shift
         ver = ver + shift
@@ -71,7 +71,7 @@ def toastersprite(randomstart):
         img4.thumbnail(dims)
         paste_coords = hor, ver
         display.frame_buf.paste(img4, paste_coords)
-        display.draw_partial(constants.DisplayModes.DU)
+        display.draw_partial(constants.DisplayModes.A2)
     
         hor = hor - shift
         ver = ver + shift
@@ -79,7 +79,7 @@ def toastersprite(randomstart):
         img3.thumbnail(dims)
         paste_coords = hor, ver
         display.frame_buf.paste(img3, paste_coords)
-        display.draw_partial(constants.DisplayModes.DU)
+        display.draw_partial(constants.DisplayModes.A2)
     
         hor = hor - shift
         ver = ver + shift
@@ -87,7 +87,7 @@ def toastersprite(randomstart):
         img2.thumbnail(dims)
         paste_coords = hor, ver
         display.frame_buf.paste(img2, paste_coords)
-        display.draw_partial(constants.DisplayModes.DU)
+        display.draw_partial(constants.DisplayModes.A2)
     
         hor = hor - shift
         ver = ver + shift
@@ -112,5 +112,6 @@ while True:
     randomstart = random.randint(1,801)
     print(f'toast starting position: {randomstart}')
     toastsprite(randomstart)
+    randomstart = random.randint(1,801)
     print(f'toaster starting position: {randomstart}')
     toastersprite(randomstart)
