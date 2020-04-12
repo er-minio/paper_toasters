@@ -41,10 +41,17 @@ def toastersprite(randomstart):
     start = randomstart
     hor = start
     ver = -100
+    hor2 = start -50
+    ver2 = -150
     while hor > -220:
     
         img1.thumbnail(dims)
         paste_coords = hor, ver
+        display.frame_buf.paste(img1, paste_coords)
+        display.draw_partial(constants.DisplayModes.A2)
+        
+        img1.thumbnail(dims)
+        paste_coords = hor2, ver2
         display.frame_buf.paste(img1, paste_coords)
         display.draw_partial(constants.DisplayModes.A2)
     
