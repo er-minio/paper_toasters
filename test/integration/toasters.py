@@ -1,6 +1,3 @@
-from test_functions import *
-import pygame
-from threading import Thread
 import random
 from PIL import Image, ImageDraw, ImageFont
 from IT8951 import constants
@@ -46,7 +43,7 @@ def toastersprite(randomstart):
         img1.thumbnail(dims)
         paste_coords = hor, ver
         display.frame_buf.paste(img1, paste_coords)
-        display.draw_partial(constants.DisplayModes.A2)
+        display.draw_partial(constants.DisplayModes.DU)
     
         hor = hor - shift
         ver = ver + shift
@@ -55,7 +52,7 @@ def toastersprite(randomstart):
         img2.thumbnail(dims)
         paste_coords = hor, ver
         display.frame_buf.paste(img2, paste_coords)
-        display.draw_partial(constants.DisplayModes.A2)
+        display.draw_partial(constants.DisplayModes.DU)
     
         hor = hor - shift
         ver = ver + shift
@@ -63,7 +60,7 @@ def toastersprite(randomstart):
         img3.thumbnail(dims)
         paste_coords = hor, ver
         display.frame_buf.paste(img3, paste_coords)
-        display.draw_partial(constants.DisplayModes.A2)
+        display.draw_partial(constants.DisplayModes.DU)
     
         hor = hor - shift
         ver = ver + shift
@@ -71,7 +68,7 @@ def toastersprite(randomstart):
         img4.thumbnail(dims)
         paste_coords = hor, ver
         display.frame_buf.paste(img4, paste_coords)
-        display.draw_partial(constants.DisplayModes.A2)
+        display.draw_partial(constants.DisplayModes.DU)
     
         hor = hor - shift
         ver = ver + shift
@@ -79,7 +76,7 @@ def toastersprite(randomstart):
         img3.thumbnail(dims)
         paste_coords = hor, ver
         display.frame_buf.paste(img3, paste_coords)
-        display.draw_partial(constants.DisplayModes.A2)
+        display.draw_partial(constants.DisplayModes.DU)
     
         hor = hor - shift
         ver = ver + shift
@@ -87,7 +84,7 @@ def toastersprite(randomstart):
         img2.thumbnail(dims)
         paste_coords = hor, ver
         display.frame_buf.paste(img2, paste_coords)
-        display.draw_partial(constants.DisplayModes.A2)
+        display.draw_partial(constants.DisplayModes.DU)
     
         hor = hor - shift
         ver = ver + shift
@@ -109,9 +106,11 @@ def toastsprite(randomstart):
 # animating the display
 x = 1
 while True:
+    # display.draw_full(constants.DisplayModes.DU)
     randomstart = random.randint(1,801)
-    print(f'toast starting position: {randomstart}')
+    print(f'### toast starting position: {randomstart}')
     toastsprite(randomstart)
-    randomstart = random.randint(1,801)
-    print(f'toaster starting position: {randomstart}')
-    toastersprite(randomstart)
+    
+    randomstartoaster = random.randint(1,801)
+    print(f'### toaster starting position: {randomstartoaster}')
+    toastersprite(randomstartoaster)
