@@ -4,9 +4,10 @@ from IT8951 import constants
 from sys import path
 path += ['../../']
 from IT8951.display import AutoEPDDisplay
+from itertools import chain
 
 print('Initializing EPD...')
-display = AutoEPDDisplay(vcom=-2.06)
+display = AutoEPDDisplay(vcom=-1.79)
 print('VCOM set to', display.epd.get_vcom())
 
 # load sprites
@@ -289,25 +290,30 @@ def ensemble(randomstart):
 # animating the display
 x = 1
 while True:
-    # display.draw_full(constants.DisplayModes.DU)
-    # randomstart = random.randint(1,801)
-#     print(f'### toast starting position: {randomstart}')
-#     toastsprite(randomstart)
-#
-#     randomstartoaster = random.randint(1,801)
-#     print(f'### toaster starting position: {randomstartoaster}')
-#     toastersprite(randomstartoaster)
-
+    
+    #randomizing start point and detecting collisions
     randomstartoaster1 = random.randint(1,801)
     print(f'### toaster1 starting position: {randomstartoaster1}')
     randomstartoaster2 = random.randint(1,801)
-    if randomstartoaster2 in range(randomstartoaster1-164, randomstartoaster1+164):
-     print('### toaster2 collision ###')
-    print(f'### toaster2 starting position: {randomstartoaster2}')
     randomstartoast = random.randint(1,801)
     print(f'### toast starting position: {randomstartoast}')
     toastdelta = random.randint(1,801)
     print(f'### toast delta: {toastdelta}')
     delta = random.randint(1,801)
     print(f'### toaster delta: {delta}')
+    toaster2_range = chain(range(randomstartoaster1-164, randomstartoaster1+164), range(randomstartoast-164, randomstartoast+164))
+    toast_range = chain(range(randomstartoaster1-164, randomstartoaster1+164), range(randomstartoaster2-164, randomstartoaster2+164))
+    
+    while randomstartoaster2 in toaster2_range:
+     print(f'### toaster2 collision: {randomstartoaster2} #############################################')
+     randomstartoaster2 = random.randint(1,801)
+     print('regenerating toaster2 origin')
+    print(f'### adjusted toaster2 starting position: {randomstartoaster2}')
+    
+    while randomstartoast in toast_range:
+     print(f'### toast collision: {randomstartoast} #############################################')
+     randomstartoaster2 = random.randint(1,801)
+     print('regenerating toast origin')
+    print(f'### adjusted toast starting position: {randomstartoast}')
+
     ensemble(randomstartoaster1)
