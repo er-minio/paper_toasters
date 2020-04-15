@@ -4,7 +4,6 @@ from IT8951 import constants
 from sys import path
 path += ['../../']
 from IT8951.display import AutoEPDDisplay
-from itertools import chain
 
 print('Initializing EPD...')
 display = AutoEPDDisplay(vcom=-1.79)
@@ -34,6 +33,79 @@ dims = (display.width, display.height)
 
 # Animation Variables
 shift = 10
+
+def toaster_anim():
+    while True:
+        hor1 = random.randint(1,800)
+        ver = random.randint(-100,0)
+        while hor1 > -164: # or ver > 974:
+            print(f'toaster {hor1}, {ver}')    
+            img1 = Image.open(img1_path)
+            paste_coords = hor1, ver
+            display.frame_buf.paste(img1, paste_coords)
+            display.draw_partial(constants.DisplayModes.DU)
+            hor1 = hor1 - shift
+            ver = ver + shift
+            
+            img2.thumbnail(dims)
+            paste_coords = hor1, ver
+            display.frame_buf.paste(img2, paste_coords)
+            display.draw_partial(constants.DisplayModes.DU)
+            hor1 = hor1 - shift
+            ver = ver + shift
+            
+            img3.thumbnail(dims)
+            paste_coords = hor1, ver
+            display.frame_buf.paste(img3, paste_coords)
+            display.draw_partial(constants.DisplayModes.DU)
+            hor1 = hor1 - shift
+            ver = ver + shift
+            
+            img4.thumbnail(dims)
+            paste_coords = hor1, ver
+            display.frame_buf.paste(img4, paste_coords)
+            display.draw_partial(constants.DisplayModes.DU)
+            hor1 = hor1 - shift
+            ver = ver + shift
+            
+            img3.thumbnail(dims)
+            paste_coords = hor1, ver
+            display.frame_buf.paste(img3, paste_coords)
+            display.draw_partial(constants.DisplayModes.DU)
+            hor1 = hor1 - shift
+            ver = ver + shift
+            
+            img2.thumbnail(dims)
+            paste_coords = hor1, ver
+            display.frame_buf.paste(img2, paste_coords)
+            display.draw_partial(constants.DisplayModes.DU)
+            hor1 = hor1 - shift
+            ver = ver + shift
+            
+            print('toaster off screen / reset')
+            
+def toast_anim():
+    while True:
+        hor2 = random.randint(1,800)
+        ver2 = random.randint(-100,0)
+        while hor1 > -164:
+            #toast
+            print(f'toast {hor1}, {ver}')
+            toast.thumbnail(dims)
+            paste_coords = hor2, ver2
+            display.frame_buf.paste(toast, paste_coords)
+            display.draw_partial(constants.DisplayModes.DU)
+        
+            hor2 = hor2 - shift
+            ver2 = ver2 + shift
+            
+            print('toast off screen / reset')
+            
+def flock():
+    while True:
+        toaster_anim()
+        toast_anim()
+            
         
 def ensemble(randomstart):
     start1 = randomstartoaster1
@@ -42,11 +114,12 @@ def ensemble(randomstart):
     hor1 = start1
     hor2 = start2
     hor3 = start3
-    versource = random.randint(164,300)
+    versource = random.randint(164,200)
     ver = -versource
-    while hor3 > -220:
+    horizontal_stop = -200
+    while hor3 >= horizontal_stop:
     
-        img1.thumbnail(dims)
+        img1 = Image.open(img1_path)
         paste_coords = hor1, ver
         display.frame_buf.paste(img1, paste_coords)
         display.draw_partial(constants.DisplayModes.DU)
@@ -183,9 +256,8 @@ def ensemble(randomstart):
         ver = ver + shift
         
 # animating the display
-w_start = 1
-w_stop = 800
-x = 1
+w_start = 200
+w_stop = 1000
 while True:
     
     #randomizing start point and detecting collisions
@@ -195,9 +267,9 @@ while True:
     print(f'### toaster2 starting position: {randomstartoaster2}')
     randomstartoast = random.randint(w_start,w_stop)
     print(f'### toast starting position: {randomstartoast}')
-    toastdelta = random.randint(w_start,w_stop)
+    toastdelta = random.randint(164,300)
     print(f'### toast delta: {toastdelta}')
-    delta = random.randint(w_start,w_stop)
+    delta = random.randint(164,450)
     print(f'### toaster delta: {delta}')
     
     #ranges
@@ -226,4 +298,5 @@ while True:
      randomstartoast = random.randint(w_start,w_stop)
     print(f'### adjusted toast starting position: {randomstartoast}')
 
-    ensemble(randomstartoaster1)
+    # ensemble(randomstartoaster1)
+    flock()
