@@ -88,7 +88,7 @@ def toast_anim():
     while True:
         hor2 = random.randint(1,800)
         ver2 = random.randint(-100,0)
-        while hor1 > -164:
+        while hor2 > -164:
             #toast
             print(f'toast {hor1}, {ver}')
             toast.thumbnail(dims)
@@ -103,7 +103,7 @@ def toast_anim():
             
 def flock():
     while True:
-        # toaster_anim()
+        toaster_anim()
         toast_anim()
             
         
