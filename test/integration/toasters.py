@@ -103,7 +103,7 @@ def toast_anim():
             
 def flock():
     while True:
-        toaster_anim()
+        # toaster_anim()
         toast_anim()
             
         
